@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://example.com/weather"
+             targetNamespace="http://example.com/weather">
+    
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                targetNamespace="http://example.com/weather">
+            <!-- Get Weather Operation -->
+            <element name="GetWeatherRequest">
+                <complexType>
+                    <sequence>
+                        <element name="city" type="string"/>
+                        <element name="country" type="string" minOccurs="0"/>
+                        <element name="units" type="string" default="metric"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="GetWeatherResponse">
+                <complexType>
+                    <sequence>
+                        <element name="temperature" type="float"/>
+                        <element name="humidity" type="integer"/>
+                        <element name="description" type="string"/>
+                        <element name="windSpeed" type="float"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- Get Forecast Operation -->
+            <element name="GetForecastRequest">
+                <complexType>
+                    <sequence>
+                        <element name="city" type="string"/>
+                        <element name="days" type="integer" minOccurs="1" maxOccurs="1"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="GetForecastResponse">
+                <complexType>
+                    <sequence>
+                        <element name="forecast" maxOccurs="unbounded">
+                            <complexType>
+                                <sequence>
+                                    <element name="date" type="date"/>
+                                    <element name="temperature" type="float"/>
+                                    <element name="description" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <!-- Error Type -->
+            <element name="WeatherError">
+                <complexType>
+                    <sequence>
+                        <element name="code" type="string"/>
+                        <element name="message" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+    <message name="GetWeatherInput">
+        <part name="parameters" element="tns:GetWeatherRequest"/>
+    </message>
+    <message name="GetWeatherOutput">
+        <part name="parameters" element="tns:GetWeatherResponse"/>
+    </message>
+    <message name="GetForecastInput">
+        <part name="parameters" element="tns:GetForecastRequest"/>
+    </message>
+    <message name="GetForecastOutput">
+        <part name="parameters" element="tns:GetForecastResponse"/>
+    </message>
+    <message name="WeatherFault">
+        <part name="fault" element="tns:WeatherError"/>
+    </message>
+
+    <portType name="WeatherPortType">
+        <operation name="GetWeather">
+            <input message="tns:GetWeatherInput"/>
+            <output message="tns:GetWeatherOutput"/>
+            <fault name="WeatherFault" message="tns:WeatherFault"/>
+        </operation>
+        <operation name="GetForecast">
+            <input message="tns:GetForecastInput"/>
+            <output message="tns:GetForecastOutput"/>
+            <fault name="WeatherFault" message="tns:WeatherFault"/>
+        </operation>
+    </portType>
+
+    <binding name="WeatherSoapBinding" type="tns:WeatherPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetWeather">
+            <soap:operation soapAction="http://example.com/weather/GetWeather"/>
+            <input><soap:body use="literal"/></input>
+            <output><soap:body use="literal"/></output>
+            <fault name="WeatherFault"><soap:fault name="WeatherFault" use="literal"/></fault>
+        </operation>
+        <operation name="GetForecast">
+            <soap:operation soapAction="http://example.com/weather/GetForecast"/>
+            <input><soap:body use="literal"/></input>
+            <output><soap:body use="literal"/></output>
+            <fault name="WeatherFault"><soap:fault name="WeatherFault" use="literal"/></fault>
+        </operation>
+    </binding>
+
+    <service name="WeatherService">
+        <port name="WeatherPort" binding="tns:WeatherSoapBinding">
+            <soap:address location="http://example.com/weather"/>
+        </port>
+    </service>
+</definitions>

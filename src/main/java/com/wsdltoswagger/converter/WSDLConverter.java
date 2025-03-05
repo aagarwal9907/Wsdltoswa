@@ -21,6 +21,7 @@ import io.swagger.v3.oas.models.tags.Tag;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.examples.Example;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -49,34 +50,64 @@ public class WSDLConverter {
                 .title(service.getServiceName())
                 .version("1.0.0")
                 .description("API generated from WSDL: " + new File(inputPath).getName())
+                .termsOfService("http://example.com/terms/")
                 .contact(new Contact()
                         .name("API Support")
-                        .email("support@example.com")
-                        .url("https://example.com/support"))
+                        .url("http://www.example.com/support")
+                        .email("support@example.com"))
                 .license(new License()
                         .name("Apache 2.0")
                         .url("http://www.apache.org/licenses/LICENSE-2.0.html"));
         openAPI.setInfo(info);
 
+        // Add external documentation
+        ExternalDocumentation externalDocs = new ExternalDocumentation()
+                .description("Find out more about this API")
+                .url("http://example.com/docs");
+        openAPI.setExternalDocs(externalDocs);
+
         // Add servers
         List<Server> servers = new ArrayList<>();
-        servers.add(new Server().url("http://api.example.com/v1").description("Production server"));
-        servers.add(new Server().url("http://staging-api.example.com/v1").description("Staging server"));
+        servers.add(new Server()
+                .url("https://api.example.com/v1")
+                .description("Production server"));
+        servers.add(new Server()
+                .url("https://staging-api.example.com/v1")
+                .description("Staging server"));
         openAPI.setServers(servers);
 
-        // Add security schemes
+        // Add components (reusable schemas, responses, parameters, etc.)
         Components components = new Components();
+
+        // Add security schemes
         SecurityScheme apiKeyScheme = new SecurityScheme()
                 .type(SecurityScheme.Type.APIKEY)
                 .in(SecurityScheme.In.HEADER)
-                .name("X-API-Key");
-        components.addSecuritySchemes("apiKey", apiKeyScheme);
+                .name("X-API-Key")
+                .description("API key authentication");
+        components.securitySchemes(Map.of("apiKey", apiKeyScheme));
+
+        // Add reusable schemas
+        // Create Error schema
+        Schema<?> errorSchema = new Schema<>()
+                .type("object")
+                .description("Error response schema");
+        Map<String, Schema> errorProperties = new HashMap<>();
+        StringSchema errorCodeSchema = new StringSchema();
+        errorCodeSchema.setDescription("Error code");
+        StringSchema errorMessageSchema = new StringSchema();
+        errorMessageSchema.setDescription("Error message");
+        errorProperties.put("code", errorCodeSchema);
+        errorProperties.put("message", errorMessageSchema);
+        errorSchema.setProperties(errorProperties);
+        components.schemas(Map.of("Error", errorSchema));
+
         openAPI.setComponents(components);
 
         // Add global security requirement
         List<SecurityRequirement> security = new ArrayList<>();
         SecurityRequirement securityRequirement = new SecurityRequirement();
-        securityRequirement.addList("apiKey", new ArrayList<>());
+        securityRequirement.put("apiKey", new ArrayList<>());
         security.add(securityRequirement);
         openAPI.setSecurity(security);
 
@@ -84,7 +115,10 @@ public class WSDLConverter {
         List<Tag> tags = new ArrayList<>();
         tags.add(new Tag()
                 .name(service.getServiceName())
-                .description("Operations for " + service.getServiceName()));
+                .description("Operations for " + service.getServiceName())
+                .externalDocs(new ExternalDocumentation()
+                        .description("Find out more")
+                        .url("http://example.com/docs/" + service.getServiceName().toLowerCase())));
         openAPI.setTags(tags);
 
         // Create paths
@@ -96,28 +130,32 @@ public class WSDLConverter {
             io.swagger.v3.oas.models.Operation swaggerOp = new io.swagger.v3.oas.models.Operation()
                     .summary(operation.getName())
                     .description(operation.getDescription())
+                    .operationId(operation.getName().toLowerCase())
                     .tags(List.of(service.getServiceName()));
 
             // Add request body schema
-            RequestBody requestBody = new RequestBody();
+            RequestBody requestBody = new RequestBody()
+                    .description("Request parameters")
+                    .required(true);
+
             Schema<?> requestSchema = new Schema<>().type("object");
             Map<String, Schema> requestProperties = new HashMap<>();
+
             StringSchema citySchema = new StringSchema();
             citySchema.setDescription("Name of the city to get weather information");
             citySchema.setExample("San Francisco");
             requestProperties.put("city", citySchema);
+
             requestSchema.setProperties(requestProperties);
             requestSchema.setRequired(List.of("city"));
 
-            requestBody.setDescription("Weather request parameters")
-                    .setRequired(true)
-                    .setContent(new io.swagger.v3.oas.models.media.Content()
-                            .addMediaType("application/json",
-                                    new io.swagger.v3.oas.models.media.MediaType()
-                                            .schema(requestSchema)
-                                            .addExamples("default",
-                                                    new Example()
-                                                            .value(Map.of("city", "San Francisco")))));
+            requestBody.content(new io.swagger.v3.oas.models.media.Content()
+                    .addMediaType("application/json",
+                            new io.swagger.v3.oas.models.media.MediaType()
+                                    .schema(requestSchema)
+                                    .addExamples("default",
+                                            new Example()
+                                                    .value(Map.of("city", "San Francisco")))));
             swaggerOp.setRequestBody(requestBody);
 
             // Add response schemas
@@ -126,6 +164,7 @@ public class WSDLConverter {
             // Success response
             Schema<?> successSchema = new Schema<>().type("object");
             Map<String, Schema> successProperties = new HashMap<>();
+
             NumberSchema tempSchema = new NumberSchema();
             tempSchema.setDescription("Current temperature");
             tempSchema.setExample(72.5);
@@ -135,6 +174,7 @@ public class WSDLConverter {
             descSchema.setDescription("Weather description");
             descSchema.setExample("Partly cloudy");
             successProperties.put("description", descSchema);
+
             successSchema.setProperties(successProperties);
 
             responses.addApiResponse("200", new ApiResponse()
@@ -145,38 +185,33 @@ public class WSDLConverter {
                                             .schema(successSchema)
                                             .addExamples("default",
                                                     new Example()
+                                                            .summary("Sample weather response")
+                                                            .description("A typical successful response")
                                                             .value(Map.of(
                                                                     "temperature", 72.5,
                                                                     "description", "Partly cloudy"))))));
 
-            // Error responses
-            Map<String, Schema> errorProperties = new HashMap<>();
-            Schema<?> errorSchema = new Schema<>().type("object");
-            StringSchema errorMessageSchema = new StringSchema();
-            errorMessageSchema.setExample("Invalid city name");
-            errorProperties.put("error", errorMessageSchema);
-            errorSchema.setProperties(errorProperties);
-
+            // Add standard error responses
             responses.addApiResponse("400", new ApiResponse()
-                    .description("Invalid request")
+                    .description("Bad request")
                     .content(new io.swagger.v3.oas.models.media.Content()
                             .addMediaType("application/json",
                                     new io.swagger.v3.oas.models.media.MediaType()
-                                            .schema(errorSchema))));
+                                            .schema(components.getSchemas().get("Error")))));
 
-            errorMessageSchema = new StringSchema();
-            errorMessageSchema.setExample("Internal server error");
-            errorProperties = new HashMap<>();
-            errorProperties.put("error", errorMessageSchema);
-            errorSchema = new Schema<>().type("object");
-            errorSchema.setProperties(errorProperties);
+            responses.addApiResponse("401", new ApiResponse()
+                    .description("Unauthorized")
+                    .content(new io.swagger.v3.oas.models.media.Content()
+                            .addMediaType("application/json",
+                                    new io.swagger.v3.oas.models.media.MediaType()
+                                            .schema(components.getSchemas().get("Error")))));
 
             responses.addApiResponse("500", new ApiResponse()
                     .description("Internal server error")
                     .content(new io.swagger.v3.oas.models.media.Content()
                             .addMediaType("application/json",
                                     new io.swagger.v3.oas.models.media.MediaType()
-                                            .schema(errorSchema))));
+                                            .schema(components.getSchemas().get("Error")))));
 
             swaggerOp.setResponses(responses);
 

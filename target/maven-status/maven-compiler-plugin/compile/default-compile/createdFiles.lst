@@ -1,5 +1,6 @@
-com/wsdltoswagger/model/Operation.class
 com/wsdltoswagger/util/Logger.class
 com/wsdltoswagger/model/ServiceDefinition.class
-com/wsdltoswagger/parser/WSDLParser.class
+com/wsdltoswagger/converter/WSDLConverter.class
 com/wsdltoswagger/Main.class
+com/wsdltoswagger/model/Operation.class
+com/wsdltoswagger/parser/WSDLParser.class

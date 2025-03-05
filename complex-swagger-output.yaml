@@ -1,0 +1,1373 @@
+---
+openapi: "3.0.1"
+info:
+  title: "WeatherService"
+  description: "API generated from WSDL: complex-sample.wsdl"
+  termsOfService: "http://example.com/terms/"
+  contact:
+    name: "API Support"
+    url: "http://www.example.com/support"
+    email: "support@example.com"
+    extensions: null
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+    extensions: null
+  version: "1.0.0"
+  extensions: null
+externalDocs:
+  description: "Find out more about this API"
+  url: "http://example.com/docs"
+  extensions: null
+servers:
+- url: "https://api.example.com/v1"
+  description: "Production server"
+  variables: null
+  extensions: null
+- url: "https://staging-api.example.com/v1"
+  description: "Staging server"
+  variables: null
+  extensions: null
+security:
+- apiKey: []
+tags:
+- name: "WeatherService"
+  description: "Operations for WeatherService"
+  externalDocs:
+    description: "Find out more"
+    url: "http://example.com/docs/weatherservice"
+    extensions: null
+  extensions: null
+paths:
+  /getweather:
+    summary: null
+    description: null
+    get: null
+    put: null
+    post:
+      tags:
+      - "WeatherService"
+      summary: "GetWeather"
+      description: "Operation from WSDL: GetWeather"
+      externalDocs: null
+      operationId: "getweather"
+      parameters: null
+      requestBody:
+        description: "Request parameters"
+        content:
+          application/json:
+            schema:
+              title: null
+              multipleOf: null
+              maximum: null
+              exclusiveMaximum: null
+              minimum: null
+              exclusiveMinimum: null
+              maxLength: null
+              minLength: null
+              pattern: null
+              maxItems: null
+              minItems: null
+              uniqueItems: null
+              maxProperties: null
+              minProperties: null
+              required:
+              - "city"
+              type: "object"
+              not: null
+              properties:
+                city:
+                  title: null
+                  multipleOf: null
+                  maximum: null
+                  exclusiveMaximum: null
+                  minimum: null
+                  exclusiveMinimum: null
+                  maxLength: null
+                  minLength: null
+                  pattern: null
+                  maxItems: null
+                  minItems: null
+                  uniqueItems: null
+                  maxProperties: null
+                  minProperties: null
+                  required: null
+                  type: "string"
+                  not: null
+                  properties: null
+                  additionalProperties: null
+                  description: "Name of the city to get weather information"
+                  format: null
+                  $ref: null
+                  nullable: null
+                  readOnly: null
+                  writeOnly: null
+                  example: "San Francisco"
+                  externalDocs: null
+                  deprecated: null
+                  xml: null
+                  extensions: null
+                  discriminator: null
+                  exampleSetFlag: true
+                  default: null
+                  enum: null
+              additionalProperties: null
+              description: null
+              format: null
+              $ref: null
+              nullable: null
+              readOnly: null
+              writeOnly: null
+              example: null
+              externalDocs: null
+              deprecated: null
+              xml: null
+              extensions: null
+              discriminator: null
+              exampleSetFlag: false
+              default: null
+              enum: null
+            examples:
+              default:
+                summary: null
+                description: null
+                value:
+                  city: "San Francisco"
+                externalValue: null
+                $ref: null
+                extensions: null
+                valueSetFlag: true
+            example: null
+            encoding: null
+            extensions: null
+            exampleSetFlag: false
+        required: true
+        extensions: null
+        $ref: null
+      responses:
+        "200":
+          description: "Successful operation"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  temperature:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "number"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Current temperature"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: 72.5
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: true
+                    default: null
+                    enum: null
+                  description:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Weather description"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: "Partly cloudy"
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: true
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: null
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples:
+                default:
+                  summary: "Sample weather response"
+                  description: "A typical successful response"
+                  value:
+                    temperature: 72.5
+                    description: "Partly cloudy"
+                  externalValue: null
+                  $ref: null
+                  extensions: null
+                  valueSetFlag: true
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "400":
+          description: "Bad request"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "401":
+          description: "Unauthorized"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "500":
+          description: "Internal server error"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+      callbacks: null
+      deprecated: null
+      security: null
+      servers: null
+      extensions: null
+    delete: null
+    options: null
+    head: null
+    patch: null
+    trace: null
+    servers: null
+    parameters: null
+    $ref: null
+    extensions: null
+  /getforecast:
+    summary: null
+    description: null
+    get: null
+    put: null
+    post:
+      tags:
+      - "WeatherService"
+      summary: "GetForecast"
+      description: "Operation from WSDL: GetForecast"
+      externalDocs: null
+      operationId: "getforecast"
+      parameters: null
+      requestBody:
+        description: "Request parameters"
+        content:
+          application/json:
+            schema:
+              title: null
+              multipleOf: null
+              maximum: null
+              exclusiveMaximum: null
+              minimum: null
+              exclusiveMinimum: null
+              maxLength: null
+              minLength: null
+              pattern: null
+              maxItems: null
+              minItems: null
+              uniqueItems: null
+              maxProperties: null
+              minProperties: null
+              required:
+              - "city"
+              type: "object"
+              not: null
+              properties:
+                city:
+                  title: null
+                  multipleOf: null
+                  maximum: null
+                  exclusiveMaximum: null
+                  minimum: null
+                  exclusiveMinimum: null
+                  maxLength: null
+                  minLength: null
+                  pattern: null
+                  maxItems: null
+                  minItems: null
+                  uniqueItems: null
+                  maxProperties: null
+                  minProperties: null
+                  required: null
+                  type: "string"
+                  not: null
+                  properties: null
+                  additionalProperties: null
+                  description: "Name of the city to get weather information"
+                  format: null
+                  $ref: null
+                  nullable: null
+                  readOnly: null
+                  writeOnly: null
+                  example: "San Francisco"
+                  externalDocs: null
+                  deprecated: null
+                  xml: null
+                  extensions: null
+                  discriminator: null
+                  exampleSetFlag: true
+                  default: null
+                  enum: null
+              additionalProperties: null
+              description: null
+              format: null
+              $ref: null
+              nullable: null
+              readOnly: null
+              writeOnly: null
+              example: null
+              externalDocs: null
+              deprecated: null
+              xml: null
+              extensions: null
+              discriminator: null
+              exampleSetFlag: false
+              default: null
+              enum: null
+            examples:
+              default:
+                summary: null
+                description: null
+                value:
+                  city: "San Francisco"
+                externalValue: null
+                $ref: null
+                extensions: null
+                valueSetFlag: true
+            example: null
+            encoding: null
+            extensions: null
+            exampleSetFlag: false
+        required: true
+        extensions: null
+        $ref: null
+      responses:
+        "200":
+          description: "Successful operation"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  temperature:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "number"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Current temperature"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: 72.5
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: true
+                    default: null
+                    enum: null
+                  description:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Weather description"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: "Partly cloudy"
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: true
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: null
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples:
+                default:
+                  summary: "Sample weather response"
+                  description: "A typical successful response"
+                  value:
+                    temperature: 72.5
+                    description: "Partly cloudy"
+                  externalValue: null
+                  $ref: null
+                  extensions: null
+                  valueSetFlag: true
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "400":
+          description: "Bad request"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "401":
+          description: "Unauthorized"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+        "500":
+          description: "Internal server error"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  code:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error code"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  message:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: "Error message"
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: "Error response schema"
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
+      callbacks: null
+      deprecated: null
+      security: null
+      servers: null
+      extensions: null
+    delete: null
+    options: null
+    head: null
+    patch: null
+    trace: null
+    servers: null
+    parameters: null
+    $ref: null
+    extensions: null
+components:
+  schemas:
+    Error:
+      title: null
+      multipleOf: null
+      maximum: null
+      exclusiveMaximum: null
+      minimum: null
+      exclusiveMinimum: null
+      maxLength: null
+      minLength: null
+      pattern: null
+      maxItems: null
+      minItems: null
+      uniqueItems: null
+      maxProperties: null
+      minProperties: null
+      required: null
+      type: "object"
+      not: null
+      properties:
+        code:
+          title: null
+          multipleOf: null
+          maximum: null
+          exclusiveMaximum: null
+          minimum: null
+          exclusiveMinimum: null
+          maxLength: null
+          minLength: null
+          pattern: null
+          maxItems: null
+          minItems: null
+          uniqueItems: null
+          maxProperties: null
+          minProperties: null
+          required: null
+          type: "string"
+          not: null
+          properties: null
+          additionalProperties: null
+          description: "Error code"
+          format: null
+          $ref: null
+          nullable: null
+          readOnly: null
+          writeOnly: null
+          example: null
+          externalDocs: null
+          deprecated: null
+          xml: null
+          extensions: null
+          discriminator: null
+          exampleSetFlag: false
+          default: null
+          enum: null
+        message:
+          title: null
+          multipleOf: null
+          maximum: null
+          exclusiveMaximum: null
+          minimum: null
+          exclusiveMinimum: null
+          maxLength: null
+          minLength: null
+          pattern: null
+          maxItems: null
+          minItems: null
+          uniqueItems: null
+          maxProperties: null
+          minProperties: null
+          required: null
+          type: "string"
+          not: null
+          properties: null
+          additionalProperties: null
+          description: "Error message"
+          format: null
+          $ref: null
+          nullable: null
+          readOnly: null
+          writeOnly: null
+          example: null
+          externalDocs: null
+          deprecated: null
+          xml: null
+          extensions: null
+          discriminator: null
+          exampleSetFlag: false
+          default: null
+          enum: null
+      additionalProperties: null
+      description: "Error response schema"
+      format: null
+      $ref: null
+      nullable: null
+      readOnly: null
+      writeOnly: null
+      example: null
+      externalDocs: null
+      deprecated: null
+      xml: null
+      extensions: null
+      discriminator: null
+      exampleSetFlag: false
+      default: null
+      enum: null
+  responses: null
+  parameters: null
+  examples: null
+  requestBodies: null
+  headers: null
+  securitySchemes:
+    apiKey:
+      type: "APIKEY"
+      description: "API key authentication"
+      name: "X-API-Key"
+      $ref: null
+      in: "HEADER"
+      scheme: null
+      bearerFormat: null
+      flows: null
+      openIdConnectUrl: null
+      extensions: null
+  links: null
+  callbacks: null
+  extensions: null
+extensions: null
