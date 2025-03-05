@@ -1,0 +1,6 @@
+/home/runner/workspace/src/main/java/com/wsdltoswagger/model/Operation.java
+/home/runner/workspace/src/main/java/com/wsdltoswagger/parser/WSDLParser.java
+/home/runner/workspace/src/main/java/com/wsdltoswagger/converter/WSDLConverter.java
+/home/runner/workspace/src/main/java/com/wsdltoswagger/Main.java
+/home/runner/workspace/src/main/java/com/wsdltoswagger/model/ServiceDefinition.java
+/home/runner/workspace/src/main/java/com/wsdltoswagger/util/Logger.java
