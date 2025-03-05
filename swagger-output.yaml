@@ -25,8 +25,207 @@ paths:
       externalDocs: null
       operationId: null
       parameters: null
-      requestBody: null
-      responses: null
+      requestBody:
+        description: null
+        content:
+          application/json:
+            schema:
+              title: null
+              multipleOf: null
+              maximum: null
+              exclusiveMaximum: null
+              minimum: null
+              exclusiveMinimum: null
+              maxLength: null
+              minLength: null
+              pattern: null
+              maxItems: null
+              minItems: null
+              uniqueItems: null
+              maxProperties: null
+              minProperties: null
+              required: null
+              type: "object"
+              not: null
+              properties:
+                city:
+                  title: null
+                  multipleOf: null
+                  maximum: null
+                  exclusiveMaximum: null
+                  minimum: null
+                  exclusiveMinimum: null
+                  maxLength: null
+                  minLength: null
+                  pattern: null
+                  maxItems: null
+                  minItems: null
+                  uniqueItems: null
+                  maxProperties: null
+                  minProperties: null
+                  required: null
+                  type: "string"
+                  not: null
+                  properties: null
+                  additionalProperties: null
+                  description: null
+                  format: null
+                  $ref: null
+                  nullable: null
+                  readOnly: null
+                  writeOnly: null
+                  example: null
+                  externalDocs: null
+                  deprecated: null
+                  xml: null
+                  extensions: null
+                  discriminator: null
+                  exampleSetFlag: false
+                  default: null
+                  enum: null
+              additionalProperties: null
+              description: null
+              format: null
+              $ref: null
+              nullable: null
+              readOnly: null
+              writeOnly: null
+              example: null
+              externalDocs: null
+              deprecated: null
+              xml: null
+              extensions: null
+              discriminator: null
+              exampleSetFlag: false
+              default: null
+              enum: null
+            examples: null
+            example: null
+            encoding: null
+            extensions: null
+            exampleSetFlag: false
+        required: null
+        extensions: null
+        $ref: null
+      responses:
+        "200":
+          description: "Successful operation"
+          headers: null
+          content:
+            application/json:
+              schema:
+                title: null
+                multipleOf: null
+                maximum: null
+                exclusiveMaximum: null
+                minimum: null
+                exclusiveMinimum: null
+                maxLength: null
+                minLength: null
+                pattern: null
+                maxItems: null
+                minItems: null
+                uniqueItems: null
+                maxProperties: null
+                minProperties: null
+                required: null
+                type: "object"
+                not: null
+                properties:
+                  temperature:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "number"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                  description:
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: "string"
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    xml: null
+                    extensions: null
+                    discriminator: null
+                    exampleSetFlag: false
+                    default: null
+                    enum: null
+                additionalProperties: null
+                description: null
+                format: null
+                $ref: null
+                nullable: null
+                readOnly: null
+                writeOnly: null
+                example: null
+                externalDocs: null
+                deprecated: null
+                xml: null
+                extensions: null
+                discriminator: null
+                exampleSetFlag: false
+                default: null
+                enum: null
+              examples: null
+              example: null
+              encoding: null
+              extensions: null
+              exampleSetFlag: false
+          links: null
+          extensions: null
+          $ref: null
       callbacks: null
       deprecated: null
       security: null
