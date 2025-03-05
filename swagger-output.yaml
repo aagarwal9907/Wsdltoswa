@@ -1,0 +1,45 @@
+---
+openapi: "3.0.1"
+info:
+  title: "WeatherService"
+  description: "API generated from WSDL: sample.wsdl"
+  termsOfService: null
+  contact: null
+  license: null
+  version: "1.0.0"
+  extensions: null
+externalDocs: null
+servers: null
+security: null
+tags: null
+paths:
+  /getweather:
+    summary: null
+    description: null
+    get: null
+    put: null
+    post:
+      tags: null
+      summary: "GetWeather"
+      description: "Operation from WSDL: GetWeather"
+      externalDocs: null
+      operationId: null
+      parameters: null
+      requestBody: null
+      responses: null
+      callbacks: null
+      deprecated: null
+      security: null
+      servers: null
+      extensions: null
+    delete: null
+    options: null
+    head: null
+    patch: null
+    trace: null
+    servers: null
+    parameters: null
+    $ref: null
+    extensions: null
+components: null
+extensions: null
